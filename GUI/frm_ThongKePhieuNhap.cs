@@ -42,5 +42,11 @@ namespace GUI
                 this.reportViewer1.RefreshReport();
             }
         }
+
+        private void btn_LamMoi_Click(object sender, EventArgs e)
+        {
+            dTOPhieuNhapBindingSource.DataSource = BUS_PhieuNhap.getPN();
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

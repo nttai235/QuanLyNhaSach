@@ -43,5 +43,11 @@ namespace GUI
                 this.reportViewer1.RefreshReport();
             }
         }
+
+        private void btn_LamMoi_Click(object sender, EventArgs e)
+        {
+            dTOHoaDonBindingSource.DataSource = BUS_HoaDon.getHD();
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

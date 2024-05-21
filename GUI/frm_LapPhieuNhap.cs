@@ -31,23 +31,48 @@ namespace GUI
 
         private void btn_TaoPNMoi_Click(object sender, EventArgs e)
         {
-            dgv_CTPN.DataSource = null;
+            if (cb_NCC.SelectedIndex == -1)
+            {
+                MessageBox.Show("Chưa chọn nhà cung cấp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                dgv_CTPN.DataSource = null;
 
-            btn_Luu.Enabled = true;
-            btn_Huy.Enabled = true;
-            btn_ThemCTPN.Enabled = true;
-            btn_XoaCTPN.Enabled = true;
-            btn_TaoPNMoi.Enabled = false;
-            txt_SoLuong.Enabled = true;
+                btn_Luu.Enabled = true;
+                btn_Huy.Enabled = true;
+                btn_ThemCTPN.Enabled = true;
+                btn_XoaCTPN.Enabled = true;
+                btn_TaoPNMoi.Enabled = false;
+                txt_SoLuong.Enabled = true;
 
-            txt_SoLuong.Text = "";
-            txt_MaPN.Text = Check.taoMaHD("PN");
-            txt_NgayLap.Text = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
-            DTO_NhanVien nv = BUS_NhanVien.getTaiKhoan(frm_DangNhap.nv.STenTK);
-            txt_MaNVLap.Text = nv.SMaNV.ToString();
-            cb_MaSach.SelectedIndex = -1;
-            cb_NCC.SelectedIndex = -1;
-            txt_TongTien.Text = "";
+                txt_SoLuong.Text = "";
+                txt_MaPN.Text = Check.taoMaHD("PN");
+                txt_NgayLap.Text = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+                DTO_NhanVien nv = BUS_NhanVien.getTaiKhoan(frm_DangNhap.nv.STenTK);
+                txt_MaNVLap.Text = nv.SMaNV.ToString();
+                cb_MaSach.SelectedIndex = -1;
+                txt_TongTien.Text = "";
+
+                if (BUS_PhieuNhap.checkPN(txt_MaPN.Text) == null)
+                {
+
+                    DTO_PhieuNhap pn = new DTO_PhieuNhap();
+                    pn.SMaPN = txt_MaPN.Text.ToString();
+                    pn.SMaNV = txt_MaNVLap.Text.ToString();
+                    pn.SMaNCC = cb_NCC.SelectedValue.ToString();
+                    pn.DNgayLap = DateTime.Parse(txt_NgayLap.Text.ToString());
+                    pn.FTongTien = 0;
+                    if (BUS_PhieuNhap.addPN(pn))
+                    {
+                        MessageBox.Show("Tạo phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi tạo phiếu nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
         }
 
         private void btn_Luu_Click(object sender, EventArgs e)
@@ -84,12 +109,7 @@ namespace GUI
 
         private void btn_ThemCTPN_Click(object sender, EventArgs e)
         {
-            
-            if (cb_NCC.SelectedIndex == -1)
-            {
-                MessageBox.Show("Chưa chọn nhà cung cấp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (cb_MaSach.SelectedIndex == -1)
+            if (cb_MaSach.SelectedIndex == -1)
             {
                 MessageBox.Show("Chưa chọn sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -103,23 +123,6 @@ namespace GUI
             }
             else
             {
-                if (BUS_PhieuNhap.checkPN(txt_MaPN.Text) == null)
-                {
-                    DTO_PhieuNhap pn = new DTO_PhieuNhap();
-                    pn.SMaPN = txt_MaPN.Text.ToString();
-                    pn.SMaNV = txt_MaNVLap.Text.ToString();
-                    pn.SMaNCC = cb_NCC.SelectedValue.ToString();
-                    pn.DNgayLap = DateTime.Parse(txt_NgayLap.Text.ToString());
-                    pn.FTongTien = 0;
-                    if (BUS_PhieuNhap.addPN(pn))
-                    {
-                        MessageBox.Show("Tạo phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lỗi tạo phiếu nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
 
                 DTO_Sach s = BUS_Sach.checkID(cb_MaSach.SelectedValue.ToString());
 

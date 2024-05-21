@@ -47,7 +47,23 @@ namespace GUI
             cb_MaSach.SelectedIndex = -1;
             txt_TongTien.Text = "";
 
-            
+            if (BUS_HoaDon.checkHD(txt_MaHD.Text) == null)
+            {
+                DTO_HoaDon hd = new DTO_HoaDon();
+                hd.SMaHD = txt_MaHD.Text.ToString();
+                hd.SMaNV = txt_MaNVLap.Text.ToString();
+                hd.DNgayLap = DateTime.Parse(txt_NgayLap.Text.ToString());
+                hd.FTongTien = 0;
+                if (BUS_HoaDon.addHD(hd))
+                {
+                    MessageBox.Show("Tạo hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi tạo hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+
         }
 
         private void btn_Luu_Click(object sender, EventArgs e)
@@ -129,24 +145,7 @@ namespace GUI
                 MessageBox.Show("Số lượng không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-            {  
-                if (BUS_HoaDon.checkHD(txt_MaHD.Text) == null)
-                {
-                    DTO_HoaDon hd = new DTO_HoaDon();
-                    hd.SMaHD = txt_MaHD.Text.ToString();
-                    hd.SMaNV = txt_MaNVLap.Text.ToString();
-                    hd.DNgayLap = DateTime.Parse(txt_NgayLap.Text.ToString());
-                    hd.FTongTien = 0;
-                    if (BUS_HoaDon.addHD(hd))
-                    {
-                        MessageBox.Show("Tạo hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lỗi tạo hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-
+            {
                 DTO_Sach s = BUS_Sach.checkID(cb_MaSach.SelectedValue.ToString());
                 if (s.ISoLuong < int.Parse(txt_SoLuong.Text))
                 {

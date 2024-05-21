@@ -200,5 +200,10 @@ namespace GUI
                     break;
             }
         }
+
+        private void frm_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
