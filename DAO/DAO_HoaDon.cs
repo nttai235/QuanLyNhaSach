@@ -97,7 +97,7 @@ namespace DAO
         }
         public static List<DTO_HoaDon> getHDbyNVnDay(string manv, string ngay)
         {
-            string sQuery = string.Format(@"select h.*, n.* from HoaDon h, NhanVien n where h.manv=n.manv and h.manv='{0}' and h.ngaylap='{1}'",manv, ngay);
+            string sQuery = string.Format(@"select h.*, n.* from HoaDon h, NhanVien n where h.manv=n.manv and h.manv='{0}' and convert(date, h.ngaylap)='{1}'",manv, ngay);
             conn = DataProvider.openConn();
             DataTable dt = DataProvider.retrieveData(sQuery, conn);
             if (dt.Rows.Count == 0)

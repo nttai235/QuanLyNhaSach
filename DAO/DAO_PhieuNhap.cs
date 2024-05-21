@@ -14,7 +14,7 @@ namespace DAO
         static SqlConnection conn;
         public static List<DTO_PhieuNhap> getPN()
         {
-            string sQuery = "select p.*, n.*, c.* from PhieuNhap p, NhanVien n, NhaCungCap c where p.manv=n.manv and c.mancc=p.mancc";
+            string sQuery = "select p.*, c.* from PhieuNhap p, NhaCungCap c where c.mancc=p.mancc";
             conn = DataProvider.openConn();
             DataTable dt = DataProvider.retrieveData(sQuery, conn);
             if (dt.Rows.Count == 0)
@@ -61,7 +61,7 @@ namespace DAO
         }
         public static DTO_PhieuNhap checkPN(string mapn)
         {
-            string sQuery = string.Format(@"select * from PhieuNhap where maphieu='{0}'", mapn);
+            string sQuery = string.Format(@"select p.*, c.* from PhieuNhap p, NhaCungCap c where c.mancc=p.mancc and p.maphieu='{0}'", mapn);
             conn = DataProvider.openConn();
             DataTable dt = DataProvider.retrieveData(sQuery, conn);
             if (dt.Rows.Count == 0)
@@ -72,13 +72,14 @@ namespace DAO
             pn.SMaPN = dt.Rows[0]["maphieu"].ToString();
             pn.SMaNV = dt.Rows[0]["manv"].ToString();
             pn.SMaNCC = dt.Rows[0]["mancc"].ToString();
+            pn.STenNCC = dt.Rows[0]["tenncc"].ToString();
             pn.DNgayLap = DateTime.Parse(dt.Rows[0]["ngaylap"].ToString());
             pn.FTongTien = float.Parse(dt.Rows[0]["tongtien"].ToString());
             return pn;
         }
         public static List<DTO_PhieuNhap> getPNbyNVnDay(string manv, string ngaylap)
         {
-            string sQuery = string.Format(@"select p.*, n.*, c.* from PhieuNhap p, NhanVien n, NhaCungCap c where p.manv=n.manv and p.mancc=c.mancc and p.manv='{0}' and p.ngaylap='{1}'", manv, ngaylap);
+            string sQuery = string.Format(@"select p.*, n.*, c.* from PhieuNhap p, NhanVien n, NhaCungCap c where p.manv=n.manv and p.mancc=c.mancc and p.manv='{0}' and convert(date, p.ngaylap)='{1}'", manv, ngaylap);
             conn = DataProvider.openConn();
             DataTable dt = DataProvider.retrieveData(sQuery, conn);
             if (dt.Rows.Count == 0)

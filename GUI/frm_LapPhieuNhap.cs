@@ -15,6 +15,7 @@ namespace GUI
     public partial class frm_LapPhieuNhap : Form
     {
         frm_DangNhap frm_DangNhap;
+        public static DTO_PhieuNhap mpn;
         public frm_LapPhieuNhap()
         {
             InitializeComponent();
@@ -64,6 +65,8 @@ namespace GUI
                 if (BUS_PhieuNhap.updatePN(pn))
                 {
                     MessageBox.Show("Đã lưu phiếu nhập.", "Thông báo", MessageBoxButtons.OK);
+                    mpn = new DTO_PhieuNhap();
+                    mpn = BUS_PhieuNhap.checkPN(txt_MaPN.Text.ToString());
                     btn_Luu.Enabled = false;
                     btn_ThemCTPN.Enabled = false;
                     btn_XoaCTPN.Enabled = false;
@@ -154,7 +157,7 @@ namespace GUI
                 {
                     if (BUS_ChiTietPhieuNhap.addCTPN(ct))
                     {
-                        MessageBox.Show("Đã thêm sách vào hóa đơn.", "Thông báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Đã thêm sách vào phiếu nhập.", "Thông báo", MessageBoxButtons.OK);
                         int slcl = s.ISoLuong + int.Parse(txt_SoLuong.Text);
                         BUS_Sach.updateSLSach(s, slcl);
                         showDataOnDGV();
@@ -168,7 +171,7 @@ namespace GUI
                     }
                     else
                     {
-                        MessageBox.Show("Không thể thêm sách vào hóa đơn.", "Thông báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Không thể thêm sách vào phiếu nhập.", "Thông báo", MessageBoxButtons.OK);
                     }
                 }
             }
@@ -230,14 +233,15 @@ namespace GUI
                 }
                 else
                 {
-                    MessageBox.Show("Hủy hoá đơn không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Hủy phiếu nhập không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void btn_InPN_Click(object sender, EventArgs e)
         {
-
+            frm_InPhieuNhap frm_InPhieuNhap = new frm_InPhieuNhap();
+            frm_InPhieuNhap.ShowDialog();
         }
 
         private void dgv_CTPN_SelectionChanged(object sender, EventArgs e)

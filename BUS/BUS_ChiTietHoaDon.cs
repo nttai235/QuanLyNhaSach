@@ -32,7 +32,7 @@ namespace BUS
         }
         public static DTO_ChiTietHoaDon getCTHD(string idHD, string idSach)
         {
-            return DAO.DAO_ChiTietHoaDon.getCTHD(idHD, idSach);
+            return DAO_ChiTietHoaDon.getCTHD(idHD, idSach);
         }
     }
 }

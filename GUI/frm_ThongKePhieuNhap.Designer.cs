@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.dTOPhieuNhapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dTOHoaDonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -42,14 +43,17 @@
             this.qLNhaSachDataSet = new GUI.QLNhaSachDataSet();
             this.hoaDonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hoaDonTableAdapter = new GUI.QLNhaSachDataSetTableAdapters.HoaDonTableAdapter();
-            this.dTOPhieuNhapBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dTOPhieuNhapBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTOHoaDonBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qLNhaSachDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoaDonBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dTOPhieuNhapBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dTOPhieuNhapBindingSource
+            // 
+            this.dTOPhieuNhapBindingSource.DataSource = typeof(DTO.DTO_PhieuNhap);
             // 
             // dTOHoaDonBindingSource
             // 
@@ -68,9 +72,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource3.Name = "DataSet1";
-            reportDataSource3.Value = this.dTOPhieuNhapBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.dTOPhieuNhapBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.Report_ThongKePhieuNhap.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 100);
             this.reportViewer1.Name = "reportViewer1";
@@ -158,10 +162,6 @@
             // 
             this.hoaDonTableAdapter.ClearBeforeFill = true;
             // 
-            // dTOPhieuNhapBindingSource
-            // 
-            this.dTOPhieuNhapBindingSource.DataSource = typeof(DTO.DTO_PhieuNhap);
-            // 
             // frm_ThongKePhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -172,13 +172,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Thống kê phiếu nhập";
             this.Load += new System.EventHandler(this.frm_ThongKePhieuNhap_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dTOPhieuNhapBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTOHoaDonBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qLNhaSachDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoaDonBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dTOPhieuNhapBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -38,7 +38,7 @@ namespace GUI
             }
             else
             {
-                dTOPhieuNhapBindingSource.DataSource = BUS_PhieuNhap.getPNbyNVnDay(cb_NV.SelectedValue.ToString(), dtp_ChonNgay.Text);
+                dTOPhieuNhapBindingSource.DataSource = BUS_PhieuNhap.getPNbyNVnDay(cb_NV.SelectedValue.ToString(), dtp_ChonNgay.Text.ToString());
                 this.reportViewer1.RefreshReport();
             }
         }

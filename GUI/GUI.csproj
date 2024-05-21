@@ -65,6 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Check.cs" />
+    <Compile Include="frm_InHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_InHoaDon.Designer.cs">
+      <DependentUpon>frm_InHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_InPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,12 +94,6 @@
     </Compile>
     <Compile Include="frm_DangNhap.Designer.cs">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_InHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_InHoaDon.Designer.cs">
-      <DependentUpon>frm_InHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_LapHoaDon.cs">
       <SubType>Form</SubType>
@@ -162,6 +162,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLNhaSachDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frm_InHoaDon.resx">
+      <DependentUpon>frm_InHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_InPhieuNhap.resx">
       <DependentUpon>frm_InPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,9 +176,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_InHoaDon.resx">
-      <DependentUpon>frm_InHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_LapHoaDon.resx">
       <DependentUpon>frm_LapHoaDon.cs</DependentUpon>
