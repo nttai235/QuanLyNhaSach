@@ -184,5 +184,61 @@ namespace DAO
             DataProvider.closeConn(conn);
             return list_NV;
         }
+        public static List<DTO_NhanVien> getNhanVienBH()
+        {
+            string sQuery = string.Format(@"select nv.*, cv.* from NhanVien nv, ChucVu cv where nv.macv = cv.macv and nv.macv='BH'");
+            conn = DataProvider.openConn();
+            DataTable dt = DataProvider.retrieveData(sQuery, conn);
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            List<DTO_NhanVien> lst_nv = new List<DTO_NhanVien>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DTO_NhanVien nv = new DTO_NhanVien();
+                nv.SMaNV = dt.Rows[i]["manv"].ToString();
+                nv.STenTK = dt.Rows[i]["tentk"].ToString();
+                nv.SMatKhau = dt.Rows[i]["matkhau"].ToString();
+                nv.SHoLot = dt.Rows[i]["holot"].ToString();
+                nv.STen = dt.Rows[i]["ten"].ToString();
+                nv.SEmail = dt.Rows[i]["email"].ToString();
+                nv.DNgaySinh = DateTime.Parse(dt.Rows[i]["ngaysinh"].ToString());
+                nv.SPhai = dt.Rows[i]["phai"].ToString();
+                nv.SQueQuan = dt.Rows[i]["quequan"].ToString();
+                nv.SMaCV = dt.Rows[i]["macv"].ToString();
+                nv.STenCV = dt.Rows[i]["tencv"].ToString();
+                lst_nv.Add(nv);
+            }
+            return lst_nv;
+        }
+        public static List<DTO_NhanVien> getNhanVienKH()
+        {
+            string sQuery = string.Format(@"select nv.*, cv.* from NhanVien nv, ChucVu cv where nv.macv = cv.macv and nv.macv='KH'");
+            conn = DataProvider.openConn();
+            DataTable dt = DataProvider.retrieveData(sQuery, conn);
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            List<DTO_NhanVien> lst_nv = new List<DTO_NhanVien>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DTO_NhanVien nv = new DTO_NhanVien();
+                nv.SMaNV = dt.Rows[i]["manv"].ToString();
+                nv.STenTK = dt.Rows[i]["tentk"].ToString();
+                nv.SMatKhau = dt.Rows[i]["matkhau"].ToString();
+                nv.SHoLot = dt.Rows[i]["holot"].ToString();
+                nv.STen = dt.Rows[i]["ten"].ToString();
+                nv.SEmail = dt.Rows[i]["email"].ToString();
+                nv.DNgaySinh = DateTime.Parse(dt.Rows[i]["ngaysinh"].ToString());
+                nv.SPhai = dt.Rows[i]["phai"].ToString();
+                nv.SQueQuan = dt.Rows[i]["quequan"].ToString();
+                nv.SMaCV = dt.Rows[i]["macv"].ToString();
+                nv.STenCV = dt.Rows[i]["tencv"].ToString();
+                lst_nv.Add(nv);
+            }
+            return lst_nv;
+        }
     }
 }

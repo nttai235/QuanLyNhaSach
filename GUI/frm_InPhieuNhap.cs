@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frm_BaoCaoDoanhThu : Form
+    public partial class frm_InPhieuNhap : Form
     {
-        public frm_BaoCaoDoanhThu()
+        public frm_InPhieuNhap()
         {
             InitializeComponent();
+        }
+
+        private void frm_InPhieuNhap_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
         }
     }
 }

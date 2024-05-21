@@ -65,6 +65,18 @@ namespace GUI
                 return true;
             }
         }
+        public static bool checkNgay(string date)
+        {
+            DateTime d = DateTime.Parse(date);
+            if (d > DateTime.Now || d.Year < 1940)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public static bool isNumeric(string value)
         {
             Regex regex = new Regex(@"^[-+]?[0-9]*.?[0-9]+$");

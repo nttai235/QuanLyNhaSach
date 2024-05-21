@@ -68,5 +68,13 @@ namespace BUS
         {
             return DAO_NhanVien.searchNV(manv, ten);
         }
+        public static List<DTO_NhanVien> getNhanVienBH()
+        {
+            return DAO_NhanVien.getNhanVienBH();
+        }
+        public static List<DTO_NhanVien> getNhanVienKH()
+        {
+            return DAO_NhanVien.getNhanVienKH();
+        }
     }
 }

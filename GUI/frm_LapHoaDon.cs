@@ -15,6 +15,7 @@ namespace GUI
     public partial class frm_LapHoaDon : Form
     {
         frm_DangNhap frm_DangNhap;
+        public static DTO_HoaDon mhd;
         public frm_LapHoaDon()
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace GUI
 
             txt_SoLuong.Text = "";
             txt_MaHD.Text = Check.taoMaHD("HD");
-            txt_NgayLap.Text = DateTime.Now.ToShortDateString();
+            txt_NgayLap.Text = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
             DTO_NhanVien nv = BUS_NhanVien.getTaiKhoan(frm_DangNhap.nv.STenTK);
             txt_MaNVLap.Text = nv.SMaNV.ToString();
             txt_NVLap.Text = nv.SHoLot.ToString() + " " + nv.STen.ToString();
@@ -63,6 +64,8 @@ namespace GUI
                 if (BUS_HoaDon.updateHD(hd))
                 {
                     MessageBox.Show("Đã lưu hoá đơn.", "Thông báo", MessageBoxButtons.OK);
+                    mhd = new DTO_HoaDon();
+                    mhd = BUS_HoaDon.checkHD(txt_MaHD.Text.ToString());
                     btn_Luu.Enabled = false;
                     btn_ThemCTHD.Enabled = false;
                     btn_XoaCTHD.Enabled = false;
@@ -177,7 +180,7 @@ namespace GUI
                     }
                     else
                     {
-                        MessageBox.Show("Không thể thêm số lượng sách vào hóa đơn.", "Thông báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Không thể cập nhật số lượng sách vào hóa đơn.", "Thông báo", MessageBoxButtons.OK);
                     }
                 }
                 else
@@ -277,11 +280,11 @@ namespace GUI
             {
                 dgv_CTHD.DataSource = ct;
                 dgv_CTHD.Columns["SMaHD"].HeaderText = "Mã hóa đơn";
-                dgv_CTHD.Columns["SMaHD"].Width = 200;
+                dgv_CTHD.Columns["SMaHD"].Width = 150;
                 dgv_CTHD.Columns["SMaSach"].HeaderText = "Mã sách";
                 dgv_CTHD.Columns["SMaSach"].Width = 100;
                 dgv_CTHD.Columns["STenSach"].HeaderText = "Tên sách";
-                dgv_CTHD.Columns["STenSach"].Width = 200;
+                dgv_CTHD.Columns["STenSach"].Width = 300;
                 dgv_CTHD.Columns["ISoLuong"].HeaderText = "Số lượng";
                 dgv_CTHD.Columns["ISoLuong"].Width = 50;
                 dgv_CTHD.Columns["FThanhTien"].HeaderText = "Thành tiền";
@@ -305,6 +308,12 @@ namespace GUI
 
                 btn_ThemCTHD.Enabled = false;
             }
+        }
+
+        private void btn_InHD_Click(object sender, EventArgs e)
+        {
+            frm_InHoaDon frm_InHoaDon = new frm_InHoaDon();
+            frm_InHoaDon.ShowDialog();
         }
     }
 }

@@ -114,9 +114,7 @@ insert into NhaCungCap(mancc, tenncc, diachi, sdt) values
 ('KD', N'Kim Đồng', N'55 Quang Trung, Nguyễn Du, Hai Bà Trưng, Hà Nội', '1900571595'),
 ('IPM', N'IPM', N'110 Nguyễn Ngọc Nại, Khương Mai, Thanh Xuân, Hà Nội', '0328383979'),
 ('TR', N'Trẻ', N'161B Lý Chính Thắng, Phường Võ Thị Sáu, Quận 3 , TP. Hồ Chí Minh', '02839316289'),
-('AZ', N' AZ VIETNAM', N'65 Đường 9, Khu Tập Thể F361, An Dương, Tây Hồ, Hà Nội', '0964484633'),
+('AZ', N'AZ VIETNAM', N'65 Đường 9, Khu Tập Thể F361, An Dương, Tây Hồ, Hà Nội', '0964484633'),
 ('AMAK', N'Amak Books', N'96 Ngõ 40 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Việt Nam', '0366979591'),
 ('NN', N'Nhã Nam', N'59, Đỗ Quang, Trung Hoà, Cầu Giấy, Hà Nội', '02435146876'),
 ('1980', N'1980 Books', N'42/35 Nguyễn Minh Hoàng-Phường 12, Quận Tân Bình, Thành Phố Hồ Chí Minh', '02839333216')
-select * from Sach
-select * from ChiTietHoaDon where mahd='HD5192024_232116' and masach='NGE'

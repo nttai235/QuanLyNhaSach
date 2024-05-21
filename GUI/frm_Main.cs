@@ -115,7 +115,7 @@ namespace GUI
 
         private void btn_BaoCaoDoanhThu_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frm_BaoCaoDoanhThu(), sender);
+            OpenChildForm(new frm_ThongKeHoaDon(), sender);
         }
 
         private void btn_LapPhieuNhap_Click(object sender, EventArgs e)
@@ -125,7 +125,7 @@ namespace GUI
 
         private void btn_BaoCaoNhapSach_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frm_BaoCaoNhapSach(), sender);
+            OpenChildForm(new frm_ThongKePhieuNhap(), sender);
         }
 
         private void btn_TTNguoiDung_Click(object sender, EventArgs e)
@@ -174,9 +174,7 @@ namespace GUI
                 case "QL":
                     toolStripStatusLabel_Quyen.Text = "Bạn đang đăng nhập với quyền: Quản lý";
                     btn_LapHoaDon.Visible=false;
-                    btn_BaoCaoDoanhThu.Visible=false;
                     btn_LapPhieuNhap.Visible=false;
-                    btn_BaoCaoNhapSach.Visible=false;
                     break;
                 case "BH":
                     toolStripStatusLabel_Quyen.Text = "Bạn đang đăng nhập với quyền: Nhân viên bán hàng";
@@ -186,7 +184,8 @@ namespace GUI
                     btn_QLNhaCC.Visible=false;
                     btn_QLNhanVien.Visible=false;
                     btn_LapPhieuNhap.Visible = false;
-                    btn_BaoCaoNhapSach.Visible = false;
+                    btn_ThongKeHoaDon.Visible=false;
+                    btn_ThongKePhieuNhap.Visible= false;
                     break;
                 case "KH":
                     toolStripStatusLabel_Quyen.Text = "Bạn đang đăng nhập với quyền: Nhân viên kho";
@@ -196,7 +195,8 @@ namespace GUI
                     btn_QLNhaCC.Visible = false;
                     btn_QLNhanVien.Visible = false;
                     btn_LapHoaDon.Visible = false;
-                    btn_BaoCaoDoanhThu.Visible = false;
+                    btn_ThongKeHoaDon.Visible = false;
+                    btn_ThongKePhieuNhap.Visible = false;
                     break;
             }
         }

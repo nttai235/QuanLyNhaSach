@@ -14,7 +14,7 @@ namespace DAO
         static SqlConnection conn;
         public static List<DTO_HoaDon> getHD()
         {
-            string sQuery = "select h.*, n.* from HoaDon h, NhanVien n where h.manv=n.manv";
+            string sQuery = "select * from HoaDon";
             conn = DataProvider.openConn();
             DataTable dt = DataProvider.retrieveData(sQuery, conn);
             if (dt.Rows.Count == 0)
@@ -27,7 +27,6 @@ namespace DAO
                 DTO_HoaDon hd = new DTO_HoaDon();
                 hd.SMaHD = dt.Rows[i]["mahd"].ToString();
                 hd.SMaNV = dt.Rows[i]["manv"].ToString();
-                hd.STenNV = dt.Rows[i]["ten"].ToString();
                 hd.DNgayLap = DateTime.Parse(dt.Rows[i]["ngaylap"].ToString());
                 hd.FTongTien = float.Parse(dt.Rows[i]["tongtien"].ToString());
                 list_hd.Add(hd);
@@ -73,6 +72,49 @@ namespace DAO
             hd.DNgayLap = DateTime.Parse(dt.Rows[0]["ngaylap"].ToString());
             hd.FTongTien = float.Parse(dt.Rows[0]["tongtien"].ToString());
             return hd;
+        }
+        public static List<DTO_HoaDon> getHDbyNV(string manv)
+        {
+            string sQuery = string.Format(@"select h.*, n.* from HoaDon h, NhanVien n where h.manv=n.manv and h.manv='{0}'", manv);
+            conn = DataProvider.openConn();
+            DataTable dt = DataProvider.retrieveData(sQuery, conn);
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            List<DTO_HoaDon> list_hd = new List<DTO_HoaDon>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DTO_HoaDon hd = new DTO_HoaDon();
+                hd.SMaHD = dt.Rows[i]["mahd"].ToString();
+                hd.SMaNV = dt.Rows[i]["manv"].ToString();
+                hd.STenNV = dt.Rows[i]["ten"].ToString();
+                hd.DNgayLap = DateTime.Parse(dt.Rows[i]["ngaylap"].ToString());
+                hd.FTongTien = float.Parse(dt.Rows[i]["tongtien"].ToString());
+                list_hd.Add(hd);
+            }
+            return list_hd;
+        }
+        public static List<DTO_HoaDon> getHDbyNVnDay(string manv, string ngay)
+        {
+            string sQuery = string.Format(@"select h.*, n.* from HoaDon h, NhanVien n where h.manv=n.manv and h.manv='{0}' and h.ngaylap='{1}'",manv, ngay);
+            conn = DataProvider.openConn();
+            DataTable dt = DataProvider.retrieveData(sQuery, conn);
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            List<DTO_HoaDon> list_hd = new List<DTO_HoaDon>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DTO_HoaDon hd = new DTO_HoaDon();
+                hd.SMaHD = dt.Rows[i]["mahd"].ToString();
+                hd.SMaNV = dt.Rows[i]["manv"].ToString();
+                hd.DNgayLap = DateTime.Parse(dt.Rows[i]["ngaylap"].ToString());
+                hd.FTongTien = float.Parse(dt.Rows[i]["tongtien"].ToString());
+                list_hd.Add(hd);
+            }
+            return list_hd;
         }
     }
 }

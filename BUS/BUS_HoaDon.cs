@@ -30,5 +30,13 @@ namespace BUS
         {
             return DAO_HoaDon.checkHD(mahd);
         }
+        public static List<DTO_HoaDon> getHDbyNV(string nv)
+        {
+            return DAO_HoaDon.getHDbyNV(nv);
+        }
+        public static List<DTO_HoaDon> getHDbyNVnDay(string manv, string ngay)
+        {
+            return DAO_HoaDon.getHDbyNVnDay(manv, ngay);
+        }
     }
 }

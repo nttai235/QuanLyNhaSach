@@ -33,6 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,23 +65,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Check.cs" />
-    <Compile Include="frm_BaoCaoDoanhThu.cs">
+    <Compile Include="frm_InPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_BaoCaoDoanhThu.Designer.cs">
-      <DependentUpon>frm_BaoCaoDoanhThu.cs</DependentUpon>
+    <Compile Include="frm_InPhieuNhap.Designer.cs">
+      <DependentUpon>frm_InPhieuNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_BaoCaoNhapSach.cs">
+    <Compile Include="frm_ThongKeHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_BaoCaoNhapSach.Designer.cs">
-      <DependentUpon>frm_BaoCaoNhapSach.cs</DependentUpon>
+    <Compile Include="frm_ThongKeHoaDon.Designer.cs">
+      <DependentUpon>frm_ThongKeHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ThongKePhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ThongKePhieuNhap.Designer.cs">
+      <DependentUpon>frm_ThongKePhieuNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_DangNhap.Designer.cs">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_InHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_InHoaDon.Designer.cs">
+      <DependentUpon>frm_InHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_LapHoaDon.cs">
       <SubType>Form</SubType>
@@ -127,14 +157,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frm_BaoCaoDoanhThu.resx">
-      <DependentUpon>frm_BaoCaoDoanhThu.cs</DependentUpon>
+    <Compile Include="QLNhaSachDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLNhaSachDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frm_InPhieuNhap.resx">
+      <DependentUpon>frm_InPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_BaoCaoNhapSach.resx">
-      <DependentUpon>frm_BaoCaoNhapSach.cs</DependentUpon>
+    <EmbeddedResource Include="frm_ThongKeHoaDon.resx">
+      <DependentUpon>frm_ThongKeHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ThongKePhieuNhap.resx">
+      <DependentUpon>frm_ThongKePhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_InHoaDon.resx">
+      <DependentUpon>frm_InHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_LapHoaDon.resx">
       <DependentUpon>frm_LapHoaDon.cs</DependentUpon>
@@ -171,6 +212,21 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report_InHoaDon.rdlc" />
+    <EmbeddedResource Include="Report_InPhieuNhap.rdlc" />
+    <EmbeddedResource Include="Report_ThongKePhieuNhap.rdlc" />
+    <EmbeddedResource Include="Report_TKHDnv.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.DTO_ChiTietHoaDon.datasource" />
+    <None Include="Properties\DataSources\DTO.DTO_ChiTietPhieuNhap.datasource" />
+    <None Include="Properties\DataSources\DTO.DTO_ChucVu.datasource" />
+    <None Include="Properties\DataSources\DTO.DTO_HoaDon.datasource" />
+    <None Include="Properties\DataSources\DTO.DTO_NhaCungCap.datasource" />
+    <None Include="Properties\DataSources\DTO.DTO_NhanVien.datasource" />
+    <None Include="Properties\DataSources\DTO.DTO_NXB.datasource" />
+    <None Include="Properties\DataSources\DTO.DTO_PhieuNhap.datasource" />
+    <None Include="Properties\DataSources\DTO.DTO_Sach.datasource" />
+    <None Include="Properties\DataSources\DTO.DTO_TheLoai.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -200,6 +256,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="QLNhaSachDataSet.xsc">
+      <DependentUpon>QLNhaSachDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLNhaSachDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLNhaSachDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLNhaSachDataSet.xss">
+      <DependentUpon>QLNhaSachDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\bg_login.png" />
   </ItemGroup>
   <ItemGroup>
@@ -214,5 +281,6 @@
   <ItemGroup>
     <None Include="Resources\bg_main.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -353,6 +353,7 @@
             this.btn_InHD.TabIndex = 23;
             this.btn_InHD.Text = "In hóa đơn";
             this.btn_InHD.UseVisualStyleBackColor = false;
+            this.btn_InHD.Click += new System.EventHandler(this.btn_InHD_Click);
             // 
             // groupBox2
             // 
@@ -419,9 +420,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_MaHD;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_NgayLap;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_NVLap;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -437,15 +436,17 @@
         private System.Windows.Forms.ComboBox cb_MaSach;
         private System.Windows.Forms.DataGridView dgv_CTHD;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txt_TongTien;
         private System.Windows.Forms.Button btn_ThemCTHD;
         private System.Windows.Forms.Button btn_TaoHDMoi;
         private System.Windows.Forms.Button btn_XoaCTHD;
         private System.Windows.Forms.Button btn_InHD;
         private System.Windows.Forms.Button btn_Luu;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txt_MaNVLap;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btn_Huy;
+        public System.Windows.Forms.TextBox txt_MaHD;
+        public System.Windows.Forms.TextBox txt_NgayLap;
+        public System.Windows.Forms.TextBox txt_TongTien;
+        public System.Windows.Forms.TextBox txt_MaNVLap;
     }
 }
