@@ -295,7 +295,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1064, 491);
+            this.ClientSize = new System.Drawing.Size(1064, 728);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_Luu);
             this.Controls.Add(this.btn_Huy);

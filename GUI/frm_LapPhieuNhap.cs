@@ -49,7 +49,7 @@ namespace GUI
                 txt_SoLuong.Text = "";
                 txt_MaPN.Text = Check.taoMaHD("PN");
                 txt_NgayLap.Text = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
-                DTO_NhanVien nv = BUS_NhanVien.getTaiKhoan(frm_DangNhap.nv.STenTK);
+                DTO_NhanVien nv = BUS_NhanVien.checkID(frm_DangNhap.nv.SMaNV);
                 txt_MaNVLap.Text = nv.SMaNV.ToString();
                 cb_MaSach.SelectedIndex = -1;
                 txt_TongTien.Text = "";

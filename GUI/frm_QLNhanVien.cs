@@ -38,7 +38,7 @@ namespace GUI
         }
         private void showDataOnDGV()
         {
-            DTO_NhanVien nv = BUS_NhanVien.getTaiKhoan(frm_DangNhap.nv.STenTK);
+            DTO_NhanVien nv = BUS_NhanVien.checkID(frm_DangNhap.nv.SMaNV);
             string manv = nv.SMaNV;
             List<DTO_NhanVien> listNV = BUS_NhanVien.getAllNhanVien(manv);
             dgv_NV.DataSource = listNV;
@@ -292,7 +292,7 @@ namespace GUI
         private void btn_TimKiem_Click(object sender, EventArgs e)
         {
             string ten = txt_TimKiem.Text;
-            DTO_NhanVien nv = BUS_NhanVien.getTaiKhoan(frm_DangNhap.nv.STenTK);
+            DTO_NhanVien nv = BUS_NhanVien.checkID(frm_DangNhap.nv.SMaNV);
             string manv = nv.SMaNV;
             if (string.IsNullOrEmpty(ten) || ten == "Nhập tên nhân viên cần tìm...")
             {

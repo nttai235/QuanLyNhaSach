@@ -25,7 +25,7 @@ namespace GUI
         }
         public void showInfo()
         {
-            DTO_NhanVien nv = BUS_NhanVien.getTaiKhoan(frm_DangNhap.nv.STenTK);
+            DTO_NhanVien nv = BUS_NhanVien.checkID(frm_DangNhap.nv.SMaNV);
             txt_MaNV.Text = nv.SMaNV.ToString();
             txt_TenTK.Text = nv.STenTK.ToString();
             txt_HoLot.Text = nv.SHoLot.ToString();
@@ -103,8 +103,9 @@ namespace GUI
                 if (BUS_NhanVien.updateTaiKhoan(nv))
                 {
                     showInfo();
+                    DTO_NhanVien nvm = BUS_NhanVien.checkID(frm_DangNhap.nv.SMaNV);
                     frm_Main = new frm_Main();
-                    frm_Main.lbl_TenND.Text = nv.SHoLot + " " + nv.STen;
+                    frm_Main.lbl_TenND.Text = nvm.SHoLot + " " + nvm.STen;
                     MessageBox.Show("Cập nhật thông tin thành công.", "Thông báo", MessageBoxButtons.OK);
                 }
                 else
